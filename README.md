@@ -1,6 +1,6 @@
 # This is the gganimate tutorial!
 
-Welcome to the gganimate graduate workshop for Geog 728!
+Welcome to the gganimate graduate workshop for Geog 728! I will be going through three different examples using the package.
 
 You can find the data [here](/data/).
 
