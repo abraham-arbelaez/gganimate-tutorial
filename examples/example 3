@@ -1,0 +1,38 @@
+# third example
+# gps data
+url2 = "https://raw.githubusercontent.com/abraham-arbelaez/gganimate-tutorial/main/data/gpsdata.csv"
+gps <- read_csv(url(url2))
+
+# let's inspect it!
+head(gps)
+
+# if you don't have API keys...
+library(leaflet)
+leaflet(gps) %>% 
+  addCircleMarkers(radius = 1,
+                   color = "#512888") %>% 
+  addTiles()
+
+# Creating boundaries
+basemap <- get_stadiamap(bbox = c(left = min(gps$lon)-0.004,
+                                  bottom = min(gps$lat)-0.001,
+                                  right = max(gps$lon)+0.004,
+                                  top = max(gps$lat)+0.001),
+                         zoom = 17)
+
+# Visualizing boundaries
+ggmap(basemap)
+
+# Checking coordinates
+ggmap(basemap) +
+  geom_point(data = gps, aes(x = lon, y = lat), size = 0.05) +
+  geom_path(data = gps, aes(x = lon, y = lat)) 
+
+# Animating data
+anim <- ggmap(basemap) +
+  geom_point(data = gps, aes(x = lon, y = lat), size = 1.5, color = "#512888") +
+  geom_path(data = gps, aes(x = lon, y = lat), size = 1, color = "#512888") + 
+  transition_reveal(along = t)
+
+animate(anim, heigh = 800, width = 800)
+anim_save("walkhome.gif")
