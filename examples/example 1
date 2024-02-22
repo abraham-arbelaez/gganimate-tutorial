@@ -1,0 +1,38 @@
+# first example
+# dinosaur shaped data!
+datasaurus_dozen %>%
+  filter(dataset == "dino") %>%
+  ggplot(aes(x=x,y=y)) +
+  geom_point() +
+  theme_minimal()
+
+# let's take a look of the whole data
+ggplot(datasaurus_dozen, aes(x=x,y=y)) +
+  geom_point() +
+  theme_minimal()
+
+# let's add gganimate!
+plot1 <- ggplot(datasaurus_dozen, aes(x=x,y=y)) +
+  geom_point() +
+  theme_minimal() +
+  transition_states(dataset,3,1) + 
+  ease_aes() 
+
+plot1
+
+anim_save("dino.gif")
+
+# changing some frames per second
+animate(plot1,
+        fps = 100, # frames per second
+        nframes = 200) # default is 100 frames
+
+# slower animation!
+animate(plot1,
+        fps = 100, # frames per second
+        nframes = 500) # default is 100 frames
+
+# faster animation!
+animate(plot1,
+        fps = 20, # frames per second
+        nframes = 50) # default is 100 frames
