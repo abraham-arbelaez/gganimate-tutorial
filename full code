@@ -1,3 +1,5 @@
+################################################################################
+
 # Let's load our libraries first!
 
 library(readr) # to read csv
@@ -28,6 +30,8 @@ plot1 <- ggplot(datasaurus_dozen, aes(x=x,y=y)) +
   ease_aes() 
 
 plot1
+
+anim_save("dino.gif")
 
 # changing some frames per second
 animate(plot1,
@@ -92,18 +96,18 @@ nfl_field
 # Plotting our data
 nfl_field +
   geom_point(
-    data = example_nfl_play,
+    data = nfl,
     aes(x, y),
-    color = example_nfl_play$color) 
+    color = nfl$color) 
 
 # Creating the animation
 play_anim <- nfl_field +
   geom_point(
-    data = example_nfl_play,
+    data = nfl,
     aes(x, y),
-    color = example_nfl_play$color,
+    color = nfl$color,
     size = 1.5) +
-  transition_time(example_nfl_play$frameId) +
+  transition_time(nfl$frameId) +
   shadow_wake(wake_length = 0.1, alpha = FALSE)
 
 # Showing the animation
@@ -133,27 +137,25 @@ leaflet(gps) %>%
   addTiles()
 
 # Creating boundaries
-basemap <- get_stadiamap(bbox = c(left = min(df$lon)-0.01,
-                                  bottom = min(df$lat)-0.005,
-                                  right = max(df$lon)+0.01,
-                                  top = max(df$lat)+0.005),
-                         zoom = 16)
+basemap <- get_stadiamap(bbox = c(left = min(gps$lon)-0.004,
+                                  bottom = min(gps$lat)-0.001,
+                                  right = max(gps$lon)+0.004,
+                                  top = max(gps$lat)+0.001),
+                         zoom = 17)
 
 # Visualizing boundaries
 ggmap(basemap)
 
 # Checking coordinates
 ggmap(basemap) +
-  geom_point(data = df, aes(x = lon, y = lat), size = 0.05) +
-  geom_path(data = df, aes(x = lon, y = lat)) 
+  geom_point(data = gps, aes(x = lon, y = lat), size = 0.05) +
+  geom_path(data = gps, aes(x = lon, y = lat)) 
 
 # Animating data
 anim <- ggmap(basemap) +
-  geom_point(data = df, aes(x = lon, y = lat), size = 1.5, color = "#512888") +
-  geom_path(data = df, aes(x = lon, y = lat), size = 0.5, color = "#512888") + 
+  geom_point(data = gps, aes(x = lon, y = lat), size = 1.5, color = "#512888") +
+  geom_path(data = gps, aes(x = lon, y = lat), size = 1, color = "#512888") + 
   transition_reveal(along = t)
 
 animate(anim, heigh = 800, width = 800)
 anim_save("walkhome.gif")
-
-
