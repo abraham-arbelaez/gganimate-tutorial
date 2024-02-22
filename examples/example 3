@@ -1,3 +1,9 @@
+library(readr)
+library(tidyverse) 
+library(gganimate) 
+library(ggmap)
+library(leaflet)
+
 # third example
 # gps data
 url2 = "https://raw.githubusercontent.com/abraham-arbelaez/gganimate-tutorial/main/data/gpsdata.csv"
@@ -7,7 +13,6 @@ gps <- read_csv(url(url2))
 head(gps)
 
 # if you don't have API keys...
-library(leaflet)
 leaflet(gps) %>% 
   addCircleMarkers(radius = 1,
                    color = "#512888") %>% 
