@@ -1,3 +1,8 @@
+library(readr) 
+library(tidyverse) 
+library(gganimate) 
+library(datasauRus) 
+
 # first example
 # dinosaur shaped data!
 datasaurus_dozen %>%
