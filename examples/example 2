@@ -1,3 +1,8 @@
+library(readr)
+library(tidyverse) 
+library(gganimate) 
+library(sportyR)
+
 # second example
 # let's load our data!
 url1 = "https://raw.githubusercontent.com/abraham-arbelaez/gganimate-tutorial/main/data/nfl.csv"
