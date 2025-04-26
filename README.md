@@ -3,6 +3,8 @@ Welcome to the gganimate workshop! I will be going through three different examp
 
 You can find the data [here](/data/).
 
+- [NFL video link](https://www.youtube.com/watch?v=LjXYo-_XMl0)
+
 Follow the code along. Let me know if you have any questions!
 
 ## References
