@@ -3,7 +3,7 @@ Welcome to the gganimate workshop! I will be going through three different examp
 
 You can find the data [here](/data/).
 
-- [NFL video link](https://youtu.be/LjXYo-_XMl0?t=269) Data of Justin Fields torching the Miami Dolphins.
+- Data of Justin Fields torching the Miami Dolphins. [NFL video link](https://youtu.be/LjXYo-_XMl0?t=269).
 
 Follow the code along. Let me know if you have any questions!
 
