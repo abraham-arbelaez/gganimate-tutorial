@@ -1,5 +1,4 @@
-# GGs:Gganimating Your GGdata with Gganimate![image](https://github.com/user-attachments/assets/290a755e-c042-4693-9e01-71f8dcb65b46)!
-
+# GGs:Gganimating Your GGdata with Gganimate!
 Welcome to the gganimate graduate workshop for Geog 728! I will be going through three different examples using the package.
 
 You can find the data [here](/data/).
